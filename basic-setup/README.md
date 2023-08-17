@@ -7,7 +7,6 @@ Configure your AWS credentials using environment variables or AWS CLI.
     connect via ENV:
    $ export AWS_ACCESS_KEY_ID="an-access-key"
    $ export AWS_SECRET_ACCESS_KEY="a-secret-key"
-   $ export AWS_REGION="us-east-1"
 
 Create a new directory for your Terraform configuration.
 Create a .tf file (e.g., main.tf) and define an EC2 instance resource using the aws_instance provider.
