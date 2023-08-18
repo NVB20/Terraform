@@ -1,15 +1,12 @@
-provider "aws" {
-  region = var.region
-}
+resource "aws_instance" "simple-ec2" {
+ 
+  count                       = var.instance_amount
+  instance_type               = var.instance_type
+  ami                         = data.aws_ami.amazon_linux.id
 
-module "ec2-instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
-  version = "5.3.1"
-
-  name          = "${var.name}-ec2-t2.micro-machine"
-  instance_type = var.type
-  ami           = data.aws_ami.amazon_linux.id
-
+  vpc_security_group_ids      = [aws_security_group.sg_tls.id]
+  subnet_id                   = aws_subnet.basic_vpc_subnet.id
+  associate_public_ip_address = true
 }
 
 data "aws_ami" "amazon_linux" {
