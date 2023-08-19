@@ -27,7 +27,7 @@ variable "instance_amount" {
 variable "vpc_name" {
     description = "The name of the VPC network"
     type        = string
-    default     = "basic_vpc_net"
+    default     = "staging-basic_vpc_net"
 }
 variable "vpc_cidr" {
     description = "The CIDR of the VPC network"
